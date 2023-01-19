@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "267425553490",
+    "project_id": "mobileapp-cs128",
+    "storage_bucket": "mobileapp-cs128.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:267425553490:android:06fe57ee3b32e37ed1d38b",
+        "android_client_info": {
+          "package_name": "com.example.lab06"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "267425553490-du7liub2hf42v8b22iakrolpdtsso8jg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZ_-mTnYLbctNM5lGfdeYCzW3vN0O52Vs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "267425553490-du7liub2hf42v8b22iakrolpdtsso8jg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
