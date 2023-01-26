@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:lab06/register.dart';
+import 'package:lab06/pages/login.dart';
+import 'package:lab06/services/auth_service.dart';
 
-class Loginpage extends StatefulWidget {
-  const Loginpage({super.key});
+class Registerpage extends StatefulWidget {
+  const Registerpage({super.key});
 
   @override
-  State<Loginpage> createState() => _LoginpageState();
+  State<Registerpage> createState() => _RegisterpageState();
 }
 
-class _LoginpageState extends State<Loginpage> {
+class _RegisterpageState extends State<Registerpage> {
   final _fromkey = GlobalKey<FormState>();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
@@ -16,42 +17,44 @@ class _LoginpageState extends State<Loginpage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Login"),
+        title: const Text("REGISTER"),
       ),
       body: SafeArea(
         child: Form(
           key: _fromkey,
           child: ListView(
             children: [
+              Text("Email :"),
               TextFormField(
                 controller: _emailController,
                 validator: (value) {
                   if (value!.isEmpty) {
                     return "กรุณากรอก Email";
                   }
+                  return null;
                 },
               ),
+              Text("Password :"),
               TextFormField(
                 controller: _passwordController,
                 validator: (value) {
                   if (value!.isEmpty) {
                     return "กรุณากรอก Password";
                   }
+                  return null;
                 },
               ),
               ElevatedButton(
                   onPressed: () {
                     if (_fromkey.currentState!.validate()) {
-                      print("WElCOME");
+                      AuthService.registerUser(
+                              _emailController.text, _passwordController.text)
+                          .then((value) {
+                        if (value == 1) {
+                          Navigator.pop(context);
+                        }
+                      });
                     }
-                  },
-                  child: const Text("Login")),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Registerpage()),
-                    );
                   },
                   child: const Text("Register"))
             ],
